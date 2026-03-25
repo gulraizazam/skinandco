@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.login-page {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    background: #F2E8D5;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ========== LEFT PANEL - Aesthetic Showcase ========== */
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #3D4A35 0%, #4A5540 30%, #5C6B4F 60%, #7A8B6A 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-left::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(242, 232, 213, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 20%, rgba(122, 139, 106, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(242, 232, 213, 0.05) 0%, transparent 50%);
+    animation: ambientShift 20s ease-in-out infinite;
+}
+
+@keyframes ambientShift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(2%, -1%) rotate(1deg); }
+    50% { transform: translate(-1%, 2%) rotate(-0.5deg); }
+    75% { transform: translate(1%, 1%) rotate(0.5deg); }
+}
+
+.left-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px;
+    max-width: 500px;
+}
+
+.brand-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    animation: fadeInDown 1s ease-out 0.3s both;
+}
+
+.brand-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.15));
+}
+
+.left-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: #F2E8D5;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    animation: fadeInDown 1s ease-out 0.5s both;
+    line-height: 1.2;
+}
+
+.left-title span {
+    font-weight: 600;
+    display: block;
+    font-size: 3.8rem;
+    letter-spacing: 6px;
+}
+
+.left-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #F2E8D5, transparent);
+    margin: 20px auto;
+    animation: fadeIn 1s ease-out 0.7s both;
+}
+
+.left-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(242, 232, 213, 0.7);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.left-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: rgba(242, 232, 213, 0.55);
+    font-style: italic;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease-out 1.1s both;
+}
+
+/* ========== FLOATING BOTANICAL ELEMENTS ========== */
+.floating-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.leaf {
+    position: absolute;
+    opacity: 0;
+    animation: floatLeaf linear infinite;
+}
+
+.leaf-1 { top: 10%; left: 8%; animation-duration: 18s; animation-delay: 0s; opacity: 0.15; }
+.leaf-2 { top: 60%; left: 15%; animation-duration: 22s; animation-delay: 3s; opacity: 0.1; }
+.leaf-3 { top: 30%; right: 10%; animation-duration: 20s; animation-delay: 6s; opacity: 0.12; }
+.leaf-4 { top: 75%; right: 20%; animation-duration: 25s; animation-delay: 2s; opacity: 0.08; }
+.leaf-5 { top: 45%; left: 5%; animation-duration: 19s; animation-delay: 8s; opacity: 0.1; }
+.leaf-6 { top: 15%; right: 5%; animation-duration: 23s; animation-delay: 5s; opacity: 0.07; }
+
+@keyframes floatLeaf {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% { opacity: 0.15; }
+    50% {
+        transform: translate(30px, -40px) rotate(180deg) scale(1.1);
+    }
+    90% { opacity: 0.15; }
+    100% {
+        transform: translate(-20px, -80px) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(242, 232, 213, 0.6);
+    border-radius: 50%;
+    animation: sparkle ease-in-out infinite;
+}
+
+.sparkle-1 { top: 20%; left: 20%; animation-duration: 3s; animation-delay: 0s; }
+.sparkle-2 { top: 50%; left: 80%; animation-duration: 4s; animation-delay: 1s; }
+.sparkle-3 { top: 80%; left: 40%; animation-duration: 3.5s; animation-delay: 2s; }
+.sparkle-4 { top: 35%; left: 60%; animation-duration: 4.5s; animation-delay: 0.5s; }
+.sparkle-5 { top: 65%; left: 25%; animation-duration: 3s; animation-delay: 1.5s; }
+.sparkle-6 { top: 15%; left: 70%; animation-duration: 5s; animation-delay: 3s; }
+.sparkle-7 { top: 85%; left: 65%; animation-duration: 3.8s; animation-delay: 2.5s; }
+.sparkle-8 { top: 40%; left: 10%; animation-duration: 4.2s; animation-delay: 4s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Floating ring decorations */
+.deco-ring {
+    position: absolute;
+    border: 1px solid rgba(242, 232, 213, 0.08);
+    border-radius: 50%;
+    animation: pulseRing 8s ease-in-out infinite;
+}
+
+.ring-1 { width: 200px; height: 200px; top: -40px; left: -60px; animation-delay: 0s; }
+.ring-2 { width: 300px; height: 300px; bottom: -80px; right: -100px; animation-delay: 2s; }
+.ring-3 { width: 150px; height: 150px; top: 40%; left: 60%; animation-delay: 4s; }
+
+@keyframes pulseRing {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.15); opacity: 0.6; }
+}
+
+/* ========== RIGHT PANEL - Login Form ========== */
+.login-right {
+    flex: 0 0 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FDFBF7;
+    position: relative;
+    z-index: 20;
+    box-shadow: -20px 0 60px rgba(61, 74, 53, 0.1);
+}
+
+.login-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #7A8B6A, #4A5540, #7A8B6A, transparent);
+    opacity: 0.4;
+}
+
+.login-form-wrapper {
+    width: 100%;
+    max-width: 380px;
+    padding: 40px 30px;
+    animation: fadeInRight 0.8s ease-out 0.2s both;
+}
+
+.form-logo {
+    text-align: center;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out 0.4s both;
+}
+
+.form-logo img {
+    max-width: 180px;
+    height: auto;
+}
+
+.text-logo {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.text-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #3D4A35;
+    letter-spacing: 4px;
+    display: block;
+}
+
+.text-logo-main em {
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 35px;
+    animation: fadeInDown 0.8s ease-out 0.5s both;
+}
+
+.form-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #3D4A35;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.form-header p {
+    font-size: 0.82rem;
+    color: #8a9580;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ========== FORM STYLING ========== */
+.aesthetic-form .form-group {
+    margin-bottom: 22px;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.aesthetic-form .form-group:nth-child(1) { animation-delay: 0.6s; }
+.aesthetic-form .form-group:nth-child(2) { animation-delay: 0.7s; }
+
+.aesthetic-form .form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4A5540;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.aesthetic-form .form-input,
+.aesthetic-form .form-input.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #E8EDE5;
+    border-radius: 12px;
+    background: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #3D4A35;
+    transition: all 0.3s ease;
+    outline: none;
+    height: auto;
+    box-shadow: none;
+}
+
+.aesthetic-form .form-input::placeholder {
+    color: #b8c4b0;
+    font-weight: 300;
+}
+
+.aesthetic-form .form-input:focus,
+.aesthetic-form .form-input.form-control:focus {
+    border-color: #7A8B6A;
+    box-shadow: 0 0 0 4px rgba(122, 139, 106, 0.1);
+    background: #FFFFFF;
+}
+
+.aesthetic-form .form-input:hover:not(:focus),
+.aesthetic-form .form-input.form-control:hover:not(:focus) {
+    border-color: #b8c4b0;
+}
+
+.aesthetic-form .form-input::placeholder,
+.aesthetic-form .form-input.form-control::placeholder {
+    color: #b8c4b0;
+    font-weight: 300;
+}
+
+.password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.forgot-link {
+    font-size: 0.75rem;
+    color: #7A8B6A;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.forgot-link:hover {
+    color: #4A5540;
+    text-decoration: underline;
+}
+
+.password-toggle {
+    position: relative;
+}
+
+.password-toggle .toggle-eye {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #b8c4b0;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle .toggle-eye:hover {
+    color: #7A8B6A;
+}
+
+/* ========== SUBMIT BUTTON ========== */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4A5540, #5C6B4F, #7A8B6A);
+    background-size: 200% 200%;
+    color: #F2E8D5;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+    margin-top: 8px;
+}
+
+.btn-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-login:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 85, 64, 0.35);
+}
+
+.btn-login:hover::before {
+    left: 100%;
+}
+
+.btn-login:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(74, 85, 64, 0.3);
+}
+
+.btn-login .btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== ALERT MESSAGES ========== */
+.login-alerts {
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.login-alerts .alert {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    border: none;
+}
+
+.login-alerts .alert-danger {
+    background: rgba(220, 53, 69, 0.08);
+    color: #9e2a2b;
+    border-left: 3px solid #dc3545;
+}
+
+.login-alerts .alert-success {
+    background: rgba(122, 139, 106, 0.1);
+    color: #3D4A35;
+    border-left: 3px solid #7A8B6A;
+}
+
+/* ========== FOOTER ========== */
+.login-footer {
+    text-align: center;
+    margin-top: 35px;
+    animation: fadeInUp 0.6s ease-out 1s both;
+}
+
+.login-footer p {
+    font-size: 0.72rem;
+    color: #b8c4b0;
+    letter-spacing: 0.5px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ========== VALIDATION STATES ========== */
+.fv-plugins-message-container {
+    margin-top: 6px;
+}
+
+.fv-plugins-message-container .fv-help-block {
+    font-size: 0.75rem;
+    color: #c0392b;
+    font-weight: 400;
+}
+
+.has-success .form-input {
+    border-color: #7A8B6A;
+}
+
+.has-danger .form-input {
+    border-color: #e74c3c;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .login-left {
+        flex: 0 0 380px;
+    }
+    .left-title { font-size: 2.4rem; }
+    .left-title span { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left {
+        flex: 0 0 220px;
+        min-height: 220px;
+    }
+
+    .left-content {
+        padding: 20px;
+    }
+
+    .left-title {
+        font-size: 1.6rem;
+    }
+
+    .left-title span {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .left-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .left-tagline {
+        display: none;
+    }
+
+    .brand-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .left-divider {
+        margin: 12px auto;
+    }
+
+    .login-right {
+        flex: 1;
+        box-shadow: 0 -10px 40px rgba(61, 74, 53, 0.08);
+    }
+
+    .login-right::before {
+        width: 100%;
+        height: 3px;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, transparent, #7A8B6A, #4A5540, #7A8B6A, transparent);
+    }
+
+    .login-form-wrapper {
+        padding: 30px 24px;
+    }
+
+    .deco-ring { display: none; }
+}
+
+@media (max-width: 480px) {
+    .login-left {
+        flex: 0 0 180px;
+        min-height: 180px;
+    }
+
+    .login-form-wrapper {
+        padding: 24px 20px;
+    }
+
+    .form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .aesthetic-form .form-input {
+        padding: 12px 14px;
+    }
+
+    .btn-login {
+        padding: 13px;
+    }
+}
