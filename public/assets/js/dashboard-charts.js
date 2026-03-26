@@ -410,8 +410,7 @@
                 modifiedLocations = locations;
             }
         } else {
-            modifiedLocations = ['Bahadurabad Karachi', 'Gulshan Johar', 'DHA Karachi', 
-                                'Johar Town Lahore', 'Gulberg Lahore', 'DHA Lahore'];
+            modifiedLocations = [];
         }
 
         // Create copies of arrays
