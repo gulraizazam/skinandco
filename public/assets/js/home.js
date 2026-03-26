@@ -536,7 +536,7 @@ function ConsultanciesByStatus(bar) {
             modifiedData = Data;
         }
     } else {
-        modifiedData = ['BHD KHI', 'Gulshan Johar', 'DHA KHI', 'JT LHR', 'Gulberg LHR', 'DHA LHR', 'Faisalabad'];
+        modifiedData = [];
     }
     if (bar.data?.walkin != undefined) {
         for (var i = 0; i < bar.data.walkin.length; i++) {
